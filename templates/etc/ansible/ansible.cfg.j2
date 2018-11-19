@@ -1,0 +1,12 @@
+[defaults]
+gathering = smart
+ansible_managed = Ansible managed: {file} modified by {uid} on {host}
+retry_files_enabled = False
+
+[privilege_escalation]
+become_method=sudo
+become_user=root
+
+[galaxy]
+role_skeleton = /etc/ansible/skel
+role_skeleton_ignore = ^.git$,^.*/.git_keep$
