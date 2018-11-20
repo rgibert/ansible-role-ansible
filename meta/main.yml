@@ -2,6 +2,7 @@
 galaxy_info:
   role_name: ansible
   author: Richard Gibert
+  company: Gibert.ca
   description: Installs Ansible and supporting tooling
   license: GPLv3
   min_ansible_version: 2.5

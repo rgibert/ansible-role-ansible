@@ -21,12 +21,13 @@ Installs Ansible and all supporting tooling.
 | ansible_os_distro_pkgs | | Distro specific packages to install |
 | ansible_os_pkgs | [ 'python-pip' ] | OS packages to install |
 | ansible_pip_pkgs | [ 'ansible', 'ansible-lint', 'docker-py', 'molecule' ] | PIP packages to install |
-| ansible_template_author | FIXME | |
+| ansible_template_author | FIXME | Author of the role for the skeleton |
+| ansible_template_company | FIXME | Company for the meta file |
 | ansible_template_email | | email address for README.md, skipped if empty |
-| ansible_template_desc | FIXME | |
+| ansible_template_desc | FIXME | Role description |
 | ansible_template_license | GPLv3 | License for the code |
 | ansible_template_web | | Web address for README.md, skipped if empty |
-| ansible_venv_path | | |
+| ansible_venv_path | | Virtual env to install to, globally installed if not provided |
 
 ## Dependencies
 

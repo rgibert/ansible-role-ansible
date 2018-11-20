@@ -1,5 +1,6 @@
 ---
 ansible_git_prefix: ""
 ansible_template_author: FIXME
+ansible_template_company: FIXME
 ansible_template_desc: FIXME
 ansible_template_license: GPLv3
