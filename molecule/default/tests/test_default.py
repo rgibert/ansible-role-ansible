@@ -16,3 +16,7 @@ def test_bin_ansible_lint(host):
 
 def test_bin_molecule(host):
     assert host.run('molecule --version').rc == 0
+
+
+def test_ansible_galaxy(host):
+    assert host.run('cd /tmp && ansible-galaxy init test')
