@@ -19,4 +19,4 @@ def test_bin_molecule(host):
 
 
 def test_ansible_galaxy(host):
-    assert host.run('cd /tmp && ansible-galaxy init test')
+    assert host.run('cd /tmp && ansible-galaxy init test').rc == 0
