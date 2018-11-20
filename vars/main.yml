@@ -1,7 +1,6 @@
 ---
 ansible_os_pkgs:
   - python-pip
-  - shellcheck
 ansible_pip_pkgs:
   - ansible
   - ansible-lint

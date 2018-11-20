@@ -7,5 +7,6 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 def test_os_installed(host):
-    assert host.package('python-pip').is_installed
-    assert host.package('shellcheck').is_installed
+    assert host.file('/usr/bin/ansible').exists
+    assert host.file('/usr/bin/ansible-lint').exists
+    assert host.file('/usr/bin/molecule').exists

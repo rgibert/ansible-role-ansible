@@ -1,0 +1,4 @@
+---
+ansible_os_distro_pkgs:
+  - gcc
+  - python-devel

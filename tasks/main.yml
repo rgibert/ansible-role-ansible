@@ -1,9 +1,19 @@
 ---
 - block:
 
+    - name: include distro vars
+      include_vars: "{{ ansible_os_family }}.yml"
+
+    - name: install EPEL
+      package:
+        name: epel-release
+        state: present
+      when:
+        - ansible_os_family == 'RedHat'
+
     - name: install OS packages
       package:
-        name: "{{ ansible_os_pkgs }}"
+        name: "{{ ansible_os_pkgs }} + {{ ansible_os_distro_pkgs }}"
         state: present
 
     - block:
@@ -22,10 +32,13 @@
       when:
         - ansible_venv_path is defined
 
-    - name: install ansible packages globally
-      pip:
-        name: "{{ ansible_pip_pkgs }}"
-        state: present
+    - block:
+
+        - name: install ansible packages globally
+          pip:
+            name: "{{ ansible_pip_pkgs }}"
+            state: present
+
       when:
         - ansible_venv_path is not defined
 

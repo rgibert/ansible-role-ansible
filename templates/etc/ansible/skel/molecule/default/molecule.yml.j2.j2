@@ -6,7 +6,7 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: {{ '{{' }} role_name {{ '}}' }}-${MOLECULE_DISTRO}
+  - name: {{ '{{' }} role_name {{ '}}' }}
     image: ${MOLECULE_DISTRO:-ubuntu:cosmic}
 provisioner:
   name: ansible
