@@ -6,7 +6,6 @@ env:
   global:
     - ROLE_NAME: ansible
   matrix:
-    - MOLECULE_DISTRO: centos:6
     - MOLECULE_DISTRO: centos:7
     - MOLECULE_DISTRO: ubuntu:artful
     - MOLECULE_DISTRO: ubuntu:bionic
