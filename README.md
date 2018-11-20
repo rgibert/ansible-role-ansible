@@ -1,10 +1,16 @@
 # Ansible
 
-Installs Ansible and all supporting tooling
+Installs Ansible and all supporting tooling.
+
+[![Build Status](https://travis-ci.org/rgibert/ansible-role-ansible.svg?branch=master)](https://travis-ci.org/rgibert/ansible-role-ansible)
+[![GitHub issues](https://img.shields.io/github/issues/rgibert/ansible-role-ansible.svg)](https://github.com/rgibert/ansible-role-ansible/issues)
+[![GitHub forks](https://img.shields.io/github/forks/rgibert/ansible-role-ansible.svg)](https://github.com/rgibert/ansible-role-ansible/network)
+[![GitHub stars](https://img.shields.io/github/stars/rgibert/ansible-role-ansible.svg)](https://github.com/rgibert/ansible-role-ansible/stargazers)
+[![GitHub license](https://img.shields.io/github/license/rgibert/ansible-role-ansible.svg)](https://github.com/rgibert/ansible-role-ansible/blob/master/LICENSE)
 
 ## Requirements
 
-- none
+- Debian or Red Hat based Linux
 
 ## Role Variables
 

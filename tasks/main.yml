@@ -69,6 +69,8 @@
         - "/etc/ansible/skel/.git-hooks/pre-commit"
         - "/etc/ansible/skel/.gitignore"
         - "/etc/ansible/skel/.travis.yml.j2"
+        - "/etc/ansible/skel/CONTRIBUTING.md"
+        - "/etc/ansible/skel/README.md.j2"
         - "/etc/ansible/skel/meta/main.yml.j2"
         - "/etc/ansible/skel/molecule/default/tests/test_default.py"
         - "/etc/ansible/skel/molecule/default/Dockerfile.j2.j2"
