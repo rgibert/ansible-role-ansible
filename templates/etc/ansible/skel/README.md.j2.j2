@@ -1,0 +1,41 @@
+# {{ role_name }}
+
+{{ ansible_template_desc }}
+
+## Requirements
+
+- TODO
+
+## Role Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| | | |
+
+## Dependencies
+
+- TODO
+
+## Example Playbook
+
+```yaml
+- hosts: servers
+  roles:
+    - role: {{ ansible_galaxy_namespace }}.{{ '{{' }} role_name {{ '}}' }}
+      var1: foo
+      var2: bar
+```
+
+## License
+
+{{ ansible_template_license }}
+
+## Author Information
+
+{{ ansible_template_author }}
+{% if ansible_template_email is defined %}
+[{{ ansible_template_email }}](mailto:{{ ansible_template_email }})
+{% endif %}
+{% if ansible_template_web is defined %}
+[{{ ansible_template_web }}]({{ ansible_template_web }})
+{% endif %}

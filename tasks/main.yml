@@ -76,6 +76,13 @@
         - "/etc/ansible/skel/molecule/default/playbook.yml.j2"
         - "/etc/ansible/skel/tasks/main.yml.j2"
 
+    - name: copy license to ansible skeleton
+      copy:
+        src: "licenses/{{ ansible_template_license }}"
+        dest: "/etc/ansible/skel/LICENSE"
+        owner: root
+        group: root
+
   become: true
   become_user: root
   tags:
