@@ -1,0 +1,82 @@
+---
+- block:
+
+    - name: include distro vars
+      include_vars: "{{ ansible_os_family }}.yml"
+
+    - name: install EPEL
+      package:
+        name: epel-release
+        state: present
+      when:
+        - ansible_os_family == 'RedHat'
+
+    - name: install OS packages
+      package:
+        name: "{{ ansible_os_pkgs }} + {{ ansible_os_distro_pkgs }}"
+        state: present
+
+    - block:
+
+        - name: install virtualenv
+          pip:
+            name: virtualenv
+            state: present
+
+        - name: install ansible packages in virtualenv
+          pip:
+            name: "{{ ansible_pip_pkgs }}"
+            state: present
+            virtualenv: "{{ ansible_venv_path }}"
+
+      when:
+        - ansible_venv_path is defined
+
+    - block:
+
+        - name: install ansible packages globally
+          pip:
+            name: "{{ ansible_pip_pkgs }}"
+            state: present
+
+      when:
+        - ansible_venv_path is not defined
+
+    - name: create ansible skeleton paths
+      file:
+        state: directory
+        path: "{{ item }}"
+        owner: root
+        group: root
+        mode: "0755"
+      loop:
+        - /etc/ansible/skel/.git-hooks
+        - /etc/ansible/skel/defaults
+        - /etc/ansible/skel/meta
+        - /etc/ansible/skel/molecule/default/tests
+        - /etc/ansible/skel/tasks
+        - /etc/ansible/skel/templates
+        - /etc/ansible/skel/vars
+
+    - name: copy ansible skeleton
+      template:
+        src: "templates{{ item }}.j2"
+        dest: "{{ item }}"
+        owner: root
+        group: root
+      loop:
+        - "/etc/ansible/ansible.cfg"
+        - "/etc/ansible/skel/.git-hooks/pre-commit"
+        - "/etc/ansible/skel/.gitignore"
+        - "/etc/ansible/skel/.travis.yml.j2"
+        - "/etc/ansible/skel/meta/main.yml.j2"
+        - "/etc/ansible/skel/molecule/default/tests/test_default.py"
+        - "/etc/ansible/skel/molecule/default/Dockerfile.j2.j2"
+        - "/etc/ansible/skel/molecule/default/molecule.yml.j2"
+        - "/etc/ansible/skel/molecule/default/playbook.yml.j2"
+        - "/etc/ansible/skel/tasks/main.yml.j2"
+
+  become: true
+  become_user: root
+  tags:
+    - ansible

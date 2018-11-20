@@ -1,0 +1,8 @@
+---
+ansible_os_pkgs:
+  - python-pip
+ansible_pip_pkgs:
+  - ansible
+  - ansible-lint
+  - docker-py
+  - molecule
