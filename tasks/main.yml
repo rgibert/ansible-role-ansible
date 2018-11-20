@@ -69,12 +69,21 @@
         - "/etc/ansible/skel/.git-hooks/pre-commit"
         - "/etc/ansible/skel/.gitignore"
         - "/etc/ansible/skel/.travis.yml.j2"
+        - "/etc/ansible/skel/CONTRIBUTING.md"
+        - "/etc/ansible/skel/README.md.j2"
         - "/etc/ansible/skel/meta/main.yml.j2"
         - "/etc/ansible/skel/molecule/default/tests/test_default.py"
         - "/etc/ansible/skel/molecule/default/Dockerfile.j2.j2"
         - "/etc/ansible/skel/molecule/default/molecule.yml.j2"
         - "/etc/ansible/skel/molecule/default/playbook.yml.j2"
         - "/etc/ansible/skel/tasks/main.yml.j2"
+
+    - name: copy license to ansible skeleton
+      copy:
+        src: "licenses/{{ ansible_template_license }}"
+        dest: "/etc/ansible/skel/LICENSE"
+        owner: root
+        group: root
 
   become: true
   become_user: root
