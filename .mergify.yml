@@ -1,0 +1,10 @@
+pull_request_rules:
+  - name: automatic merge on CI success
+    conditions:
+      - author=rgibert
+      - base=master
+      - status-success=continuous-integration/travis-ci/pr
+    actions:
+      merge:
+        method: squash
+        strict: true
