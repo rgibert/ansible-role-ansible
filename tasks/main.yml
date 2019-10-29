@@ -23,6 +23,14 @@
             name: virtualenv
             state: present
 
+        - name: upgrade setuptools
+          pip:
+            name: setuptools
+            state: latest
+            virtualenv: "{{ ansible_venv_path }}"
+          tags:
+            - skip_ansible_lint
+
         - name: install ansible packages in virtualenv
           pip:
             name: "{{ ansible_pip_pkgs }}"
@@ -33,6 +41,13 @@
         - ansible_venv_path is defined
 
     - block:
+
+        - name: upgrade setuptools
+          pip:
+            name: setuptools
+            state: latest
+          tags:
+            - skip_ansible_lint
 
         - name: install ansible packages globally
           pip:
