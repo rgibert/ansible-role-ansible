@@ -7,7 +7,7 @@ lint:
   name: yamllint
 platforms:
   - name: rgibert-ansible
-    image: ${MOLECULE_DISTRO:-ubuntu:cosmic}
+    image: ${MOLECULE_DISTRO:-ubuntu:eoan}
 provisioner:
   name: ansible
   lint:
