@@ -1,5 +1,12 @@
 # {{ '{{' }} role_name {{ '}}' }}
 
+![Ansible Role](https://img.shields.io/ansible/role/ANSIBLE_GALAXY_ID?style=flat-square)
+![Molecule Test Status](https://img.shields.io/travis/{{ ansible_galaxy_namespace }}/{{ ansible_git_prefix }}{{ '{{' }} role_name {{ '}}' }}?label=molecule&style=flat-square)
+![Ansible Quality Score](https://img.shields.io/ansible/quality/ANSIBLE_GALAXY_ID?style=flat-square)
+![Ansible Role](https://img.shields.io/ansible/role/d/ANSIBLE_GALAXY_ID?label=downloads&style=flat-square)
+
+## Description
+
 {{ ansible_template_desc }}
 
 ## Requirements
@@ -32,9 +39,9 @@
 
 ## Author Information
 
-{{ ansible_template_author }}
+{{ ansible_template_author }}  
 {% if ansible_template_email is defined %}
-[{{ ansible_template_email }}](mailto:{{ ansible_template_email }})
+[{{ ansible_template_email }}](mailto:{{ ansible_template_email }})  
 {% endif %}
 {% if ansible_template_web is defined %}
 [{{ ansible_template_web }}]({{ ansible_template_web }})

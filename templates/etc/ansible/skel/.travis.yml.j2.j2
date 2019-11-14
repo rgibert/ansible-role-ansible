@@ -6,12 +6,10 @@ env:
   global:
     - ROLE_NAME: {{ '{{' }} role_name {{ '}}' }}
   matrix:
-    - MOLECULE_DISTRO: centos:6
     - MOLECULE_DISTRO: centos:7
-    - MOLECULE_DISTRO: ubuntu:artful
+    - MOLECULE_DISTRO: centos:8
     - MOLECULE_DISTRO: ubuntu:bionic
-    - MOLECULE_DISTRO: ubuntu:cosmic
-    - MOLECULE_DISTRO: ubuntu:trusty
+    - MOLECULE_DISTRO: ubuntu:eoan
     - MOLECULE_DISTRO: ubuntu:xenial
 before_install:
   - sudo apt-get -qq update
@@ -19,7 +17,7 @@ install:
   - pip install molecule docker
 before_script:
   - cd ../
-  - mv {{ ansible_git_prefix }}${ROLE_NAME//_/-} {{ ansible_galaxy_namespace }}.$ROLE_NAME
-  - cd {{ ansible_galaxy_namespace }}.$ROLE_NAME
+  - mv {{ ansible_git_prefix }}${ROLE_NAME//_/-} {{ ansible_galaxy_namespace }}.${ROLE_NAME}
+  - cd {{ ansible_galaxy_namespace }}.${ROLE_NAME}
 script:
   - molecule test

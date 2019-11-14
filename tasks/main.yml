@@ -2,7 +2,10 @@
 - block:
 
     - name: include distro vars
-      include_vars: "{{ ansible_os_family }}.yml"
+      include_vars: "{{ item }}"
+      with_first_found:
+        - "{{ ansible_os_family }}.yml"
+        - "{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml"
 
     - name: install EPEL
       package:
@@ -23,6 +26,14 @@
             name: virtualenv
             state: present
 
+        - name: upgrade setuptools
+          pip:
+            name: setuptools
+            state: latest
+            virtualenv: "{{ ansible_venv_path }}"
+          tags:
+            - skip_ansible_lint
+
         - name: install ansible packages in virtualenv
           pip:
             name: "{{ ansible_pip_pkgs }}"
@@ -33,6 +44,13 @@
         - ansible_venv_path is defined
 
     - block:
+
+        - name: upgrade setuptools
+          pip:
+            name: setuptools
+            state: latest
+          tags:
+            - skip_ansible_lint
 
         - name: install ansible packages globally
           pip:
@@ -51,6 +69,7 @@
         mode: "0755"
       loop:
         - /etc/ansible/skel/.git-hooks
+        - /etc/ansible/skel/.github
         - /etc/ansible/skel/defaults
         - /etc/ansible/skel/meta
         - /etc/ansible/skel/molecule/default/tests
@@ -67,7 +86,9 @@
       loop:
         - "/etc/ansible/ansible.cfg"
         - "/etc/ansible/skel/.git-hooks/pre-commit"
+        - "/etc/ansible/skel/.github/CODEOWNERS"
         - "/etc/ansible/skel/.gitignore"
+        - "/etc/ansible/skel/.mergify.yml"
         - "/etc/ansible/skel/.travis.yml.j2"
         - "/etc/ansible/skel/CONTRIBUTING.md"
         - "/etc/ansible/skel/README.md.j2"

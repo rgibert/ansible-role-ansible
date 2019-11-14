@@ -1,2 +1,19 @@
 ---
-# Tasks file for {{ '{{' }} role_name {{ '}}' }}
+- block:
+
+    - name: include distro vars
+      include_vars: "{{ item }}"
+      with_first_found:
+        - "{{ ansible_os_family }}.yml"
+        - "{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml"
+        - "{{ ansible_os_family }}-{{ ansible_distribution_release }}.yml"
+        - "{{ ansible_os_family }}-{{ ansible_distribution_version }}.yml"
+        - "{{ ansible_distribution }}.yml"
+        - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+        - "{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
+        - "{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
+
+  become: true
+  become_user: root
+  tags:
+    - {{ '{{' }} role_name {{ '}}' }}

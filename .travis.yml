@@ -7,9 +7,8 @@ env:
     - ROLE_NAME: ansible
   matrix:
     - MOLECULE_DISTRO: centos:7
-    - MOLECULE_DISTRO: ubuntu:artful
     - MOLECULE_DISTRO: ubuntu:bionic
-    - MOLECULE_DISTRO: ubuntu:cosmic
+    - MOLECULE_DISTRO: ubuntu:eoan
     - MOLECULE_DISTRO: ubuntu:xenial
 before_install:
   - sudo apt-get -qq update

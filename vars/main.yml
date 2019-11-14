@@ -1,6 +1,6 @@
 ---
 ansible_os_pkgs:
-  - python-pip
+  - gcc
 ansible_pip_pkgs:
   - ansible
   - ansible-lint
