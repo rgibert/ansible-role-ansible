@@ -89,7 +89,7 @@
         - "/etc/ansible/skel/.github/CODEOWNERS"
         - "/etc/ansible/skel/.gitignore"
         - "/etc/ansible/skel/.mergify.yml"
-        - "/etc/ansible/skel/.travis.yml"
+        - "/etc/ansible/skel/.travis.yml.j2"
         - "/etc/ansible/skel/CONTRIBUTING.md"
         - "/etc/ansible/skel/README.md.j2"
         - "/etc/ansible/skel/meta/main.yml.j2"
