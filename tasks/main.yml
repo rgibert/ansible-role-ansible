@@ -69,6 +69,7 @@
         mode: "0755"
       loop:
         - /etc/ansible/skel/.git-hooks
+        - /etc/ansible/skel/.github
         - /etc/ansible/skel/defaults
         - /etc/ansible/skel/meta
         - /etc/ansible/skel/molecule/default/tests
@@ -85,8 +86,10 @@
       loop:
         - "/etc/ansible/ansible.cfg"
         - "/etc/ansible/skel/.git-hooks/pre-commit"
+        - "/etc/ansible/skel/.github/CODEOWNERS"
         - "/etc/ansible/skel/.gitignore"
-        - "/etc/ansible/skel/.travis.yml.j2"
+        - "/etc/ansible/skel/.mergify.yml"
+        - "/etc/ansible/skel/.travis.yml"
         - "/etc/ansible/skel/CONTRIBUTING.md"
         - "/etc/ansible/skel/README.md.j2"
         - "/etc/ansible/skel/meta/main.yml.j2"
