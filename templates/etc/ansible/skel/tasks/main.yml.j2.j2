@@ -1,17 +1,24 @@
 ---
 - block:
 
-    - name: include distro vars
-      include_vars: "{{ item }}"
+    - name: include system specific vars
+      include_vars: "vars/{{ item }}"
       with_first_found:
+        - "{{ ansible_system }}.yml"
+        - "{{ ansible_system }}-{{ ansible_architecture }}.yml"
         - "{{ ansible_os_family }}.yml"
+        - "{{ ansible_os_family }}-{{ ansible_architecture }}.yml"
         - "{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml"
-        - "{{ ansible_os_family }}-{{ ansible_distribution_release }}.yml"
+        - "{{ ansible_os_family }}-{{ ansible_distribution_major_version }}-{{ ansible_architecture }}.yml"
         - "{{ ansible_os_family }}-{{ ansible_distribution_version }}.yml"
+        - "{{ ansible_os_family }}-{{ ansible_distribution_version }}-{{ ansible_architecture }}.yml"
         - "{{ ansible_distribution }}.yml"
+        - "{{ ansible_distribution }}-{{ ansible_architecture }}.yml"
         - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
-        - "{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
+        - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}-{{ ansible_architecture }}.yml"
         - "{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
+        - "{{ ansible_distribution }}-{{ ansible_distribution_version }}-{{ ansible_architecture }}.yml"
+        - "empty.yml"
 
   become: true
   become_user: root
