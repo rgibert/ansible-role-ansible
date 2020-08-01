@@ -49,6 +49,8 @@
           pip:
             name: setuptools
             state: latest
+          become: true
+          become_user: root
           tags:
             - skip_ansible_lint
 
