@@ -2,4 +2,3 @@
 ansible_os_distro_pkgs:
   - python3-devel
   - python3-pip
-
