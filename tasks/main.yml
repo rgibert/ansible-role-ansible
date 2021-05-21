@@ -66,7 +66,7 @@
         path: "{{ item }}"
         owner: root
         group: root
-        mode: "0755"
+        mode: "u=rwX,g=rX,o=rX"
       loop:
         - /etc/ansible/skel/.git-hooks
         - /etc/ansible/skel/.github
@@ -83,6 +83,7 @@
         dest: "{{ item }}"
         owner: root
         group: root
+        mode: "u=rw,g=r,o=r"
       loop:
         - "/etc/ansible/ansible.cfg"
         - "/etc/ansible/skel/.git-hooks/pre-commit"
@@ -105,6 +106,7 @@
         dest: "/etc/ansible/skel/LICENSE"
         owner: root
         group: root
+        mode: "u=rw,g=r,o=r"
 
   become: true
   become_user: root
