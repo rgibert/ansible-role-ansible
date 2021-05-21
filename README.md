@@ -2,7 +2,7 @@
 
 Installs Ansible and all supporting tooling.
 
-[![Build Status](https://travis-ci.org/rgibert/ansible-role-ansible.svg?branch=master)](https://travis-ci.org/rgibert/ansible-role-ansible)
+[![.github/workflows/molecule-test.yml](https://github.com/rgibert/ansible-role-ansible/actions/workflows/molecule-test.yml/badge.svg)](https://github.com/rgibert/ansible-role-ansible/actions/workflows/molecule-test.yml)
 [![GitHub issues](https://img.shields.io/github/issues/rgibert/ansible-role-ansible.svg)](https://github.com/rgibert/ansible-role-ansible/issues)
 [![GitHub forks](https://img.shields.io/github/forks/rgibert/ansible-role-ansible.svg)](https://github.com/rgibert/ansible-role-ansible/network)
 [![GitHub stars](https://img.shields.io/github/stars/rgibert/ansible-role-ansible.svg)](https://github.com/rgibert/ansible-role-ansible/stargazers)
